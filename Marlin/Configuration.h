@@ -226,7 +226,7 @@
 
    :{ 0:'No power switch', 1:'ATX', 2:'X-Box 360' }
 */
-#define POWER_SUPPLY 0
+#define POWER_SUPPLY 1
 
 #if POWER_SUPPLY > 0
 // Enable this option to leave the PSU off at startup.
@@ -325,8 +325,8 @@
 // When temperature exceeds max temp, your heater will be switched off.
 // This feature exists to protect your hotend from overheating accidentally, but *NOT* from thermistor short/failure!
 // You should use MINTEMP for thermistor short/failure protection.
-#define HEATER_0_MAXTEMP 285
-#define HEATER_1_MAXTEMP 285
+#define HEATER_0_MAXTEMP 295
+#define HEATER_1_MAXTEMP 295
 #define HEATER_2_MAXTEMP 275
 #define HEATER_3_MAXTEMP 275
 #define HEATER_4_MAXTEMP 275
@@ -355,9 +355,9 @@
 // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
 // Ultimaker
-#define  DEFAULT_Kp 22.2
-#define  DEFAULT_Ki 1.08
-#define  DEFAULT_Kd 114
+//#define  DEFAULT_Kp 22.2
+//#define  DEFAULT_Ki 1.08
+//#define  DEFAULT_Kd 114
 
 // MakerGear
 //#define  DEFAULT_Kp 7.0
@@ -368,6 +368,11 @@
 //#define  DEFAULT_Kp 63.0
 //#define  DEFAULT_Ki 2.25
 //#define  DEFAULT_Kd 440
+
+//Panowin
+#define DEFAULT_Kp 22.2
+#define DEFAULT_Ki 1.08
+#define DEFAULT_Kd 114
 
 #endif // PIDTEMP
 
@@ -529,7 +534,7 @@
    Override with M92
                                         X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
 */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 2560, 2560, 2560, 500 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 246, 246, 246, 500 }
 
 /**
    Default Max Feed Rate (mm/s)
@@ -556,7 +561,7 @@
 */
 #define DEFAULT_ACCELERATION          3000    // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_TRAVEL_ACCELERATION   1000    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
    Default Jerk (mm/s)
@@ -585,7 +590,7 @@
 
    Enable this option for a probe connected to the Z Min endstop pin.
 */
-#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 /**
    Z_MIN_PROBE_ENDSTOP
@@ -620,7 +625,7 @@
    Use G29 repeatedly, adjusting the Z height at each point with movement commands
    or (with LCD_BED_LEVELING) the LCD controller.
 */
-//#define PROBE_MANUALLY
+#define PROBE_MANUALLY
 
 /**
    A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
@@ -683,9 +688,9 @@
         O-- FRONT --+
       (0,0)
 */
-#define X_PROBE_OFFSET_FROM_EXTRUDER 10  // X offset: -left  +right  [of the nozzle]
-#define Y_PROBE_OFFSET_FROM_EXTRUDER 10  // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
+//#define X_PROBE_OFFSET_FROM_EXTRUDER 10  // X offset: -left  +right  [of the nozzle]
+//#define Y_PROBE_OFFSET_FROM_EXTRUDER 10  // Y offset: -front +behind [the nozzle]
+//#define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 8000
@@ -743,14 +748,14 @@
 // @section extruder
 
 #define DISABLE_E false // For all extruders
-#define DISABLE_INACTIVE_EXTRUDER true // Keep only the active extruder enabled.
+#define DISABLE_INACTIVE_EXTRUDER false // Keep only the active extruder enabled.
 
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR false
+#define INVERT_X_DIR true
 #define INVERT_Y_DIR true
-#define INVERT_Z_DIR false
+#define INVERT_Z_DIR true
 
 // Enable this option for Toshiba stepper drivers
 //#define CONFIG_STEPPERS_TOSHIBA
@@ -789,7 +794,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 120
+#define Z_MAX_POS 100
 
 /**
    Software Endstops
@@ -1113,7 +1118,7 @@
 // M501 - reads parameters from EEPROM (if you need reset them after you changed them temporarily).
 // M502 - reverts to the default "factory settings".  You still need to store them in EEPROM afterwards if you want to.
 //
-//#define EEPROM_SETTINGS // Enable for M500 and M501 commands
+#define EEPROM_SETTINGS // Enable for M500 and M501 commands
 //#define DISABLE_M503    // Saves ~2700 bytes of PROGMEM. Disable for release!
 #define EEPROM_CHITCHAT   // Give feedback on EEPROM commands. Disable to save PROGMEM.
 
@@ -1320,7 +1325,7 @@
               https://github.com/olikraus/U8glib_Arduino
 */
 //#define ULTRA_LCD   // Character based
-//#define DOGLCD      // Full graphics display
+#define DOGLCD      // Full graphics display
 
 /**
    SD CARD
