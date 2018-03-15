@@ -370,9 +370,9 @@
 //#define  DEFAULT_Kd 440
 
 //Panowin
-#define DEFAULT_Kp 22.2
-#define DEFAULT_Ki 1.08
-#define DEFAULT_Kd 114
+#define DEFAULT_Kp 55.0
+#define DEFAULT_Ki 1.5
+#define DEFAULT_Kd 15
 
 #endif // PIDTEMP
 
