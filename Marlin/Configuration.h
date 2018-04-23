@@ -212,8 +212,8 @@
 // Offset of the extruders (uncomment if using more than one and relying on firmware to position when changing).
 // The offset has to be X=0, Y=0 for the extruder 0 hotend (default extruder).
 // For the other hotends it is their distance from the extruder 0 hotend.
-#define HOTEND_OFFSET_X {0.0, 18.00}   // (in mm) for each extruder, offset of the hotend on the X axis
-//#define HOTEND_OFFSET_Y {0.0, 5.00}  // (in mm) for each extruder, offset of the hotend on the Y axis
+#define HOTEND_OFFSET_X {0.0, 18.0}   // (in mm) for each extruder, offset of the hotend on the X axis
+#define HOTEND_OFFSET_Y {0.0, 0.0}  // (in mm) for each extruder, offset of the hotend on the Y axis
 
 // @section machine
 
@@ -347,7 +347,7 @@
 //#define PID_DEBUG // Sends debug data to the serial port.
 //#define PID_OPENLOOP 1 // Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX
 //#define SLOW_PWM_HEATERS // PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay
-//#define PID_PARAMS_PER_HOTEND // Uses separate PID parameters for each extruder (useful for mismatched extruders)
+#define PID_PARAMS_PER_HOTEND // Uses separate PID parameters for each extruder (useful for mismatched extruders)
 // Set/get with gcode: M301 E[extruder number, 0-2]
 #define PID_FUNCTIONAL_RANGE 10 // If the temperature difference between the target temperature and the actual temperature
 // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
@@ -370,9 +370,9 @@
 //#define  DEFAULT_Kd 440
 
 //Panowin
-#define DEFAULT_Kp 55.0
-#define DEFAULT_Ki 1.5
-#define DEFAULT_Kd 15
+#define DEFAULT_Kp 14.43
+#define DEFAULT_Ki 0.9
+#define DEFAULT_Kd 57.65
 
 #endif // PIDTEMP
 
@@ -531,10 +531,12 @@
 
 /**
    Default Axis Steps Per Unit (steps/mm)
+   Motorstep Angle = 1.8; 1/16 µ-Stepping; Leadscrew-"pitch"= 14mm/revolution= 2mm*7/revolution= pitch*starts/revolution
    Override with M92
                                         X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
 */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 246, 246, 246, 285 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 228.57, 228.57, 228.57, 286 }
+
 
 /**
    Default Max Feed Rate (mm/s)
@@ -549,7 +551,7 @@
    Override with M201
                                         X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
 */
-#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 10000 }
+#define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 1000 }
 
 /**
    Default Acceleration (change/s) change = mm/s
@@ -791,7 +793,7 @@
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
-#define Z_MIN_POS 1.5
+#define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 100
@@ -1157,6 +1159,10 @@
 #define PREHEAT_2_TEMP_HOTEND 240
 #define PREHEAT_2_TEMP_BED    80
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
+
+#define PREHEAT_3_TEMP_HOTEND 240
+#define PREHEAT_3_TEMP_BED    60
+#define PREHEAT_3_FAN_SPEED     0 // Value from 0 to 255
 
 /**
    Nozzle Park
