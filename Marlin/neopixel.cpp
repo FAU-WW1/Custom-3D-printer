@@ -57,4 +57,3 @@ void setup_neopixel() {
 }
 
 #endif // NEOPIXEL_LED
-
