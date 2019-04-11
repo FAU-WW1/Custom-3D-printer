@@ -212,13 +212,13 @@
 //Offset of the extruders (uncomment if using more than one and relying on firmware to position when changing).
 // The offset has to be X=0, Y=0 for the extruder 0 hotend (default extruder).
 // For the other hotends it is their distance from the extruder 0 hotend.
-//<<<<<<< HEAD
+<<<<<<< HEAD
 #define HOTEND_OFFSET_X {0.0, 0.00}   // (in mm) for each extruder, offset of the hotend on the X axis
 #define HOTEND_OFFSET_Y {0.0, 0.00}  // (in mm) for each extruder, offset of the hotend on the Y axis
-//=======
+=======
 #define HOTEND_OFFSET_X {0.0, 18.0}   // (in mm) for each extruder, offset of the hotend on the X axis
 #define HOTEND_OFFSET_Y {0.0, 0.0}  // (in mm) for each extruder, offset of the hotend on the Y axis
-//>>>>>>> a46dc1b922d568304a3e532e2a30ab45f3e0d9ef
+>>>>>>> a46dc1b922d568304a3e532e2a30ab45f3e0d9ef
 
 // @section machine
 
